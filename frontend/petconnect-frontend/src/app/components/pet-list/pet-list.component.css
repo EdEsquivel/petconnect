@@ -1,0 +1,27 @@
+.pet-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .pet-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .pet-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .pet-item h3 {
+    margin: 8px 0;
+  }
+  
+  .pet-item p {
+    margin: 4px 0;
+  }

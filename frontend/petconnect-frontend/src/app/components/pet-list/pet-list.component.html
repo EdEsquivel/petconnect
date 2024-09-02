@@ -1,0 +1,17 @@
+<div class="pet-list">
+    @for (pet of pets; track pet) {
+      <div class="pet-item">
+        <img [src]="pet.image" alt="{{ pet.name }}">
+        <h3>{{ pet.name }}</h3>
+        <p>Breed: {{ pet.breed }}</p>
+        @if (pet.description) {
+          <p>Description: {{ pet.description }}</p>
+        }
+        @if (pet.status === 'adopted') {
+          <p>Status: Adopted</p>
+        } @else {
+          <p>Status: Available</p>
+        }
+      </div>
+    }
+  </div>
