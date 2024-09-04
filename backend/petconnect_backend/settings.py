@@ -30,6 +30,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '674140294791-evohvtr28f34vm4amtqt79ms4tidbrve.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +51,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'pet_adoption',
+    'django.contrib.sites',  # Necesario para django-allauth, se relaciona con SITE_ID = 1
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [

@@ -1,0 +1,59 @@
+/* Fondo de la página o del contenedor principal */
+body {
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .pet-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .pet-item {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    width: 220px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px); /* Efecto de vidrio */
+    -webkit-backdrop-filter: blur(10px); /* Prefijo para Safari */
+    color: #333;
+  }
+  
+  .pet-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pet-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease; /* Añade una ligera animación a la imagen */
+  }
+  
+  .pet-item img:hover {
+    transform: scale(1.05); /* Aumenta un poco el tamaño de la imagen al hacer hover */
+  }
+  
+  .pet-item h3 {
+    margin: 8px 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .pet-item p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.9rem;
+  }
+  

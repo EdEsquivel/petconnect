@@ -22,6 +22,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('pet_adoption.urls')),  # Incluir las rutas de pet_adoption
+    path('rest-auth/', include('dj_rest_auth.urls')),
+    path('rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('accounts/', include('allauth.urls')),  # Necesario para las rutas de django-allauth
 ]
 
 if settings.DEBUG:
