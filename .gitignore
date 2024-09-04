@@ -157,3 +157,6 @@ __pycache__/
 .cache/
 .eslintcache
 .stylelintcache
+
+# Google OAuth Credentials
+0Auth_Google_Credentials.json
