@@ -140,3 +140,20 @@ db.sqlite3
 # Other
 .env
 .DS_Store
+
+# Build output
+dist/
+
+# Python
+*.pyc
+__pycache__/
+
+# IDE and Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
