@@ -71,3 +71,24 @@ h1 {
   color: #555;
   font-size: 0.9rem;
 }
+
+nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745; /* Color verde moderno */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #218838; /* Un verde más oscuro al hacer hover */
+  transform: scale(1.05); /* Aumenta el tamaño ligeramente al pasar el cursor */
+}
+
+nav a:active {
+  background-color: #1e7e34; /* Verde aún más oscuro al hacer clic */
+  transform: scale(0.98); /* Reduce el tamaño ligeramente al hacer clic */
+}

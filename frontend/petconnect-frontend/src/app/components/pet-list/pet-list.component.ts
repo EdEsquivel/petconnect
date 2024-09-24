@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Pet } from '../../models/pet.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pet-list',
   standalone: true,
-  imports: [], // Agregar aquí los módulos necesarios
+  imports: [RouterModule], // Agregar aquí los módulos necesarios
   templateUrl: './pet-list.component.html',
   styleUrl: './pet-list.component.css'
 })

@@ -17,5 +17,14 @@ export class ApiService {
     return this.http.get<Pet[]>(`${this.apiUrl}pets/`);
   }
 
+  // Método para crear una nueva mascota
+  //createPet(petData: Pet): Observable<Pet> {
+    //return this.http.post<Pet>(`${this.apiUrl}pets/`, petData);
+  //}
+
+  createPet(formData: FormData) {
+    return this.http.post('http://127.0.0.1:8000/api/pets/', formData);
+  }
+
   // Agrega otros métodos para manejar diferentes endpoints si es necesario
 }

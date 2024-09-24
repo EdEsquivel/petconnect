@@ -24,6 +24,8 @@ urlpatterns = [
     path('api/', include('pet_adoption.urls')),  # Incluir las rutas de pet_adoption
     path('rest-auth/', include('dj_rest_auth.urls')),
     path('rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    # Comentamos o eliminamos esta línea ya que estamos usando nuestra propia implementación
+   # path('rest-auth/google/', include('allauth.socialaccount.urls')),  # Endpoint de Google
     path('accounts/', include('allauth.urls')),  # Necesario para las rutas de django-allauth
 ]
 

@@ -26,21 +26,44 @@ SECRET_KEY = 'django-insecure-yb$ts6b21zw^qx@h2ym%e2yit4(fvhd722$jdxa=(y-(c$bu=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
 
+# Configura el dominio de tu sitio
 SITE_ID = 1
 
+# Configuración de autenticación
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Configuración de proveedores de autenticación
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
         'APP': {
             'client_id': config('GOOGLE_CLIENT_ID'),
             'secret': config('GOOGLE_CLIENT_SECRET'),
             'key': ''
         }
     }
+}
+
+# Configuración de REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
 INSTALLED_APPS = [
@@ -66,17 +89,31 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+# Otras configuraciones de CORS
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_ALL_ORIGINS = True # Para permitir todas las solicitudes
+
+# O para limitar a dominios específicos
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
+    'https://petconnect1.firebaseapp.com'
+]
+
+# Si utilizas Django >= 4.2:
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:4200',
+    'https://petconnect1.firebaseapp.com'
 ]
 
 # Ruta para manejar las fotos de los animales en la base de datos
@@ -156,3 +193,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración adicional para dj-rest-auth
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
