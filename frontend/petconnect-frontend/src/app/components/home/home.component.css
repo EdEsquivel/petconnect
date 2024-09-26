@@ -1,0 +1,57 @@
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .options-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .register-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .google-btn {
+    background-color: #db4437;
+    color: white;
+  }
+  
+  .google-btn:hover {
+    background-color: #c33222;
+  }
+  
+  .guest-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .guest-btn:hover {
+    background-color: #218838;
+  }
+  
