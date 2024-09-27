@@ -1,4 +1,7 @@
 <h1>Lista de Mascotas</h1>
+<nav>
+  <a routerLink="/create-pet">Publicar Mascota en Adopción </a>
+</nav>
 <div class="pet-list">
     @for (pet of pets; track pet) {
       <div class="pet-item">
@@ -16,7 +19,13 @@
       </div>
     }
   </div>
+
+<!--
   <nav>
-    <a routerLink="/create-pet">Crear Mascota</a>
-    <!-- otros enlaces -->
-  </nav>
+     Mostrar el botón de "Crear Mascota" si está autenticado, caso contrario un mensaje de invitación 
+    @if (isAuthenticated) {
+      <a routerLink="/create-pet">Publicar Mascota en Adopción </a>
+    } @else {
+      <p><a routerLink="">Inicia sesión o regístrate </a>para publicar una mascota en adopción.</p>
+    }
+  </nav> -->

@@ -54,7 +54,7 @@ export class CreatePetComponent {
     this.apiService.createPet(formData).subscribe({
       next: (response) => {
         alert('Mascota creada exitosamente');
-        this.router.navigate(['']);
+        this.router.navigate(['petlist']);
       },
       error: (error) => {
         alert('Error al crear la mascota');

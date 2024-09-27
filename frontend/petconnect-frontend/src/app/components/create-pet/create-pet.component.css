@@ -60,3 +60,16 @@ form {
     transform: scale(1.05);
   }
   
+  /* Estilos para campos inválidos */
+input.ng-invalid.ng-dirty,
+select.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+/* Opcional: Estilos para mensajes de error */
+p {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
