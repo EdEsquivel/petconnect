@@ -1,0 +1,20 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+  <button class="close-btn" (click)="closeModal()">X</button>
+
+  <!-- Manejo de errores -->
+  @if (!pet) {
+    <p>Error al cargar los detalles del animal. Por favor, inténtalo de nuevo más tarde.</p>
+  } @else {
+    <img [src]="pet.image" alt="{{ pet.name }}">
+    <h2>{{ pet.name }}</h2>
+    <p><strong>Raza:</strong> {{ pet.breed }}</p>
+    <p><strong>Edad:</strong> {{ pet.age }}</p>
+    <p><strong>Estado:</strong> {{ pet.status === 'adopted' ? 'Adoptado(a)' : 'En adopción' }}</p>
+    
+    <!-- Botón para aplicar a adopción solo si el animal no ha sido adoptado -->
+    @if (pet.status !== 'adopted') {
+      <button class="apply-btn" (click)="applyForAdoption()">Aplicar para Adopción</button>
+    }
+  }
+</div>

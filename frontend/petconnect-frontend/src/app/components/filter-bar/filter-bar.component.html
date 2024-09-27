@@ -1,0 +1,27 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <label for="species">Especie:</label>
+    <select id="species" formControlName="species">
+      <option value="">Todas</option>
+      <option value="dog">Perro</option>
+      <option value="cat">Gato</option>
+      <!-- Agrega más opciones según lo que tengas disponible -->
+    </select>
+  
+    <label for="breed">Raza:</label>
+    <input id="breed" type="text" formControlName="breed" placeholder="Raza">
+  
+    <label for="ageRange">Rango de Edad:</label>
+    <input id="ageRange" type="text" formControlName="ageRange" placeholder="Ej: 1-3">
+  
+    <label for="size">Tamaño:</label>
+    <select id="size" formControlName="size">
+      <option value="">Todos</option>
+      <option value="small">Pequeño</option>
+      <option value="medium">Mediano</option>
+      <option value="large">Grande</option>
+    </select>
+  
+    <button type="submit">Aplicar Filtros</button>
+    <button type="button" (click)="resetFilters()">Resetear</button>
+  </form>
+  

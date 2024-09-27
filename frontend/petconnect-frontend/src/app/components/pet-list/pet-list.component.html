@@ -1,10 +1,25 @@
 <h1>Lista de Mascotas</h1>
+
+<!-- Barra de filtros -->
+<app-filter-bar (filtersChanged)="onFiltersChanged($event)"></app-filter-bar>
+
+<!-- Mostrar el botón de publicar mascota solo si está autenticado -->
 <nav>
-  <a routerLink="/create-pet">Publicar Mascota en Adopción </a>
+  <a routerLink="/create-pet">Publicar Mascota en Adopción</a>
 </nav>
-<div class="pet-list">
-    @for (pet of pets; track pet) {
-      <div class="pet-item">
+
+<!-- Mostrar mensaje si no se encontraron mascotas -->
+@if (noResults) {
+  <div>
+    <p>No se encontraron animales que coincidan con los filtros seleccionados.</p>
+  </div>
+}
+
+<!-- Mostrar la lista de mascotas filtradas -->
+@if (!noResults) {
+  <div class="pet-list">
+    @for (pet of filteredPets; track pet) {
+      <div class="pet-item" (click)="openModal(pet)">
         <img [src]="pet.image" alt="{{ pet.name }}">
         <h3>{{ pet.name }}</h3>
         <p>Raza: {{ pet.breed }}</p>
@@ -19,13 +34,9 @@
       </div>
     }
   </div>
+}
 
-<!--
-  <nav>
-     Mostrar el botón de "Crear Mascota" si está autenticado, caso contrario un mensaje de invitación 
-    @if (isAuthenticated) {
-      <a routerLink="/create-pet">Publicar Mascota en Adopción </a>
-    } @else {
-      <p><a routerLink="">Inicia sesión o regístrate </a>para publicar una mascota en adopción.</p>
-    }
-  </nav> -->
+<!-- Modal para mostrar los detalles de la mascota -->
+@if (selectedPet) {
+  <app-pet-detail-modal [pet]="selectedPet" (close)="closeModal()"></app-pet-detail-modal>
+}
